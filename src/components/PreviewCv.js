@@ -1,5 +1,6 @@
 import React from "react";
 import ReactToPrint from 'react-to-print';
+import '../App.css';
 
 export default class RenderCvPrev extends React.Component{
   constructor(props){
@@ -8,13 +9,17 @@ export default class RenderCvPrev extends React.Component{
   }
     render(){
     return(
-        <div>
+        <div className="FullCvPreviewPage">
           <div>
-            {console.log(this.props)}
-            <p>Name:{this.props.Name}</p>
-            <p>Email:{this.props.Email}</p>
-            <p>Address:{this.props.Address}</p>
-            <p>Phone Number:{this.props.PhoneNumber}</p>
+             <h1>
+             Curriculum Vitae
+             </h1>
+          </div>
+          <div>
+            <p>Name:  {this.props.Name}</p>
+            <p>Email:  {this.props.Email}</p>
+            <p>Address:  {this.props.Address}</p>
+            <p>Phone Number:  {this.props.PhoneNumber}</p>
           </div>
           <div>
 

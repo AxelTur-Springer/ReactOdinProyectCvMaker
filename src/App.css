@@ -4,3 +4,9 @@
 .ExperienceForm{
   display: none;
 }
+.FullCvPreviewPage{
+  text-align: left;
+border: solid green;
+width: 50em;
+margin: auto;
+}
