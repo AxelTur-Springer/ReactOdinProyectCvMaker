@@ -11,13 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.Header{
+  text-align: center;
+}
+.FullPage{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;margin: auto;
+  border: solid lightgray;
+  border-radius: 5px;
+  text-align: center;
+}
+.FullPageForm{
+  border:  solid red;
+  width: 40% ;
+}
 .former{
   display: flex;
   flex-direction: column;
-  width: 10em;
+  width: 100%;
 }
-.TESTING{
-  display: flex;
-  border: solid red;
-  justify-content: space-between;
+.former input{
+  width: 15em;
+  height: 1.5em;
+}
+.former button{
+  width:5em;
+  margin: auto;
 }

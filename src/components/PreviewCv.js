@@ -1,39 +1,45 @@
 import React from "react";
 import ReactToPrint from 'react-to-print';
 
-export  default class RenderCvPrev extends React.Component{
+export default class RenderCvPrev extends React.Component{
   constructor(props){
     super(props)
-    const {name,address,job} = props;
+    const {Name,Address,Email,PhoneNumber} = props;
   }
     render(){
     return(
         <div>
-          <h1> i am {this.props.name}</h1>
-          <h2>i work at {this.props.job}</h2>
-          <h3>i live in {this.props.address}</h3>
+          <div>
+            {console.log(this.props)}
+            <p>Name:{this.props.Name}</p>
+            <p>Email:{this.props.Email}</p>
+            <p>Address:{this.props.Address}</p>
+            <p>Phone Number:{this.props.PhoneNumber}</p>
+          </div>
+          <div>
+
+          </div>
         </div>
     )
   }
 }
     
-export class Example extends React.PureComponent {
+export class PreviewCvPlusDownload extends React.PureComponent {
   constructor(props){
     super(props)
-    const {name,address,job} = props;
+    const {name,address,job,PhoneNumber} = props;
   }
   render() {
     return (
       <div>
           <RenderCvPrev 
-         name = {this.props.name} 
-         address = {this.props.address} 
-         job ={this.props.job} 
+         Name = {this.props.Name} 
+         Address = {this.props.Address} 
+         Email ={this.props.Email} 
+         PhoneNumber = {this.props.PhoneNumber}
          ref={el => (this.componentRef = el)} />
         <ReactToPrint 
           trigger={() => {
-            // NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
-            // to the root node of the returned component as it will be overwritten.
             return <button>Print this out!</button>;
           }}
           content={() => this.componentRef}

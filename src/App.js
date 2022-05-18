@@ -1,29 +1,23 @@
 import React from 'react';
 import './App.css';
 import RenderCvPrev from './components/PreviewCv';
-import { Example } from './components/PreviewCv';
+import { PreviewCvPlusDownload } from './components/PreviewCv';
+import EducationComponent from './components/Education';
+import WorkExperienceComponent from './components/WorkExperience';
 class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      name:"",
-      address:"",
-      job:"",
+      Name:"",
+      Address:"",
+      Email:"",
+      PhoneNumber:""
     }
-    this.submited = this.submited.bind(this)
     this.onWrite = this.onWrite.bind(this)
   }
-submited(e){
-  e.preventDefault()
-  this.setState(
-    {name: e.target[0].value,
-    address: e.target[1].value,
-    job:e.target[2].value
-    }
-  )  
-}
+
 onWrite(e){
-  let Obj = e.target.placeholder;
+  let Obj = e.target.placeholder.split(" ").join("");
   this.setState(
     {[Obj]: e.target.value
     }
@@ -33,18 +27,41 @@ onWrite(e){
 }
   render(){
     return (
-      <div className='TESTING'>
-        <form action="" className='former' onSubmit={this.submited} >
-          <input type="text" placeholder='name' onChange={this.onWrite}/>
-          <input type="text" placeholder='address'onChange={this.onWrite}/>
-          <input type="text" placeholder='job'onChange={this.onWrite}/>
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <button type="submit"> send</button>
-        </form>
-        <Example name = {this.state.name} address = {this.state.address} job ={this.state.job} />
-      </div>
+          <div className='FullPage'>
+            <div className='FullPageForm'>
+            <form action="" className='former' >
+            <div>
+                <h2>Personal Informacion</h2>
+              </div>
+              <div>
+                <p>Enter Full Name</p>
+                <input type="text" placeholder='Name' onChange={this.onWrite}/>
+              </div>
+              <div>
+                <p>Enter Address</p>
+                <input type="text" placeholder='Address'onChange={this.onWrite}/>
+              </div>
+              <div>
+                <p>Enter Email</p>
+                <input type="text" placeholder='Email'onChange={this.onWrite}/>
+              </div>
+              <div>
+                <p>Enter Phone Number</p>
+                <input type="text" placeholder='Phone Number'onChange={this.onWrite} />
+              </div>
+            </form>
+            <EducationComponent />
+            <WorkExperienceComponent />
+            </div>
+            <div>
+              <PreviewCvPlusDownload 
+              Name = {this.state.Name} 
+              Address = {this.state.Address}
+              Email ={this.state.Email}
+              PhoneNumber = {this.state.PhoneNumber}/>
+            </div>
+        </div>
+        
     );
   }
  
